@@ -17,25 +17,25 @@ public class OauthClientController {
     @Autowired
     OauthClientService oauthClientService;
 
-    @GetMapping("/user/")
+    @GetMapping("/client/")
     public ResponseEntity<?> display() {
         List<OauthClient> oauthClientList = oauthClientService.findAll();
         return new ResponseEntity<>(oauthClientList, HttpStatus.OK);
     }
 
-    @PostMapping("/user/")
+    @PostMapping("/client/")
     public ResponseEntity<?> insert(@RequestBody OauthClient oauthClient) {
         oauthClientService.insert(oauthClient);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PutMapping("/user/{id}")
+    @PutMapping("/client/{id}")
     public ResponseEntity<?> update(@RequestBody OauthClient oauthClient) {
         oauthClientService.update(oauthClient);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping("/user/{id}")
+    @DeleteMapping("/client/{id}")
     public ResponseEntity<?> delete(@PathVariable String id) {
         oauthClientService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
